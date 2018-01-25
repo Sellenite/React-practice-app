@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import logo from './images/logo.svg';
+import 'normalize.css';
 import './css/App.css';
 
-import Stage1 from './components/stage1.js';
+import Stage1 from './components/stage1/index.js';
 
 class App extends Component {
     render() {

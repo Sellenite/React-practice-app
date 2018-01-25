@@ -1,3 +1,11 @@
+div {
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+
 .App-logo {
     animation: App-logo-spin infinite 20s linear;
     height: 80px;
