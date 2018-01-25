@@ -3,6 +3,7 @@ import Chapter7 from './chapter7';
 import Chapter9 from './chapter9';
 import Chapter10 from './chapter10';
 import Chapter11 from './chapter11';
+import Tab1 from './tab1';
 
 class Stage1 extends Component {
     constructor() {
@@ -12,6 +13,7 @@ class Stage1 extends Component {
 
     render() {
         return (<div className="Stage1">
+            <Tab1></Tab1>
             <Chapter7></Chapter7>
             <Chapter9></Chapter9>
             <Chapter10></Chapter10>
