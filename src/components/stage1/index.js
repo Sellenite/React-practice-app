@@ -4,6 +4,7 @@ import Chapter9 from './Chapter9';
 import Chapter10 from './Chapter10';
 import Chapter11 from './Chapter11';
 import Chapter13 from './Chapter13';
+import Chapter14 from './Chapter14/CommentApp';
 import Tab1 from './Tab1';
 
 class Stage1 extends Component {
@@ -40,6 +41,7 @@ class Stage1 extends Component {
                     console.log(e.target.innerHTML);
                 }}></Chapter11>
             <Chapter13></Chapter13>
+            <Chapter14></Chapter14>
         </div>);
     }
 }
