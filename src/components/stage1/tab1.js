@@ -5,43 +5,40 @@ class Tab1 extends Component {
     constructor() {
         super();
         this.state = {
-            tabs: [
+            newList: [
                 {
-                    tabName: '热点',
-                    id: 1
+                    title: '热点',
+                    index: 1
                 }, {
-                    tabName: '社会',
-                    id: 2
+                    title: '娱乐',
+                    index: 2
                 }, {
-                    tabName: '体育',
-                    id: 3
+                    title: '运动',
+                    index: 3
                 }, {
-                    tabName: '头条',
-                    id: 4
+                    title: '头条',
+                    index: 4
                 }
             ],
             currentIndex: 1
         }
     }
 
-    handleClick(id) {
-        this.setState({currentIndex: id});
+    handleClick(index) {
+        this.setState({currentIndex: index});
     }
 
     render() {
-        let tabList = this.state.tabs.map((item, index) => {
-            const tabStyle = item.id === this.state.currentIndex
+        let list = this.state.newList.map((item, index) => {
+            const classFix = item.index === this.state.currentIndex
                 ? 'list active'
                 : 'list';
-            return <li key={index} onClick={this.handleClick.bind(this, item.id)} className={tabStyle}>
-                {item.tabName}
+            return <li onClick={this.handleClick.bind(this, item.index)} className={classFix} key={index}>
+                {item.title}
             </li>
         });
-
         return (<div>
-            <ul className="news">
-                {tabList}
-            </ul>
+            {list}
         </div>);
     }
 }
