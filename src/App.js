@@ -4,6 +4,7 @@ import 'normalize.css';
 import './css/App.css';
 
 import Stage1 from './components/stage1/index.js';
+import Stage2 from './components/stage2/index.js';
 
 class App extends Component {
     render() {
@@ -13,6 +14,8 @@ class App extends Component {
                 <img src={logo} alt="" className="App-logo"/>
                 <p> Stage1 start ==================</p>
                 <Stage1/>
+                <p> Stage2 start ==================</p>
+                <Stage2/>
             </header>
         </div>);
     }
