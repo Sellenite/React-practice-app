@@ -33,23 +33,44 @@ function renderContent(content) {
 }
 
 /* 统一修改状态函数 */
-function dispatch(action) {
+function stateChanger(state, action) {
     switch (action.type) {
         case 'UPDATE_TITLE_TEXT':
-            appState.title.text = action.text;
+            state.title.text = action.text;
             break;
         case 'UPDATE_TITLE_COLOR':
-            appState.title.color = action.color;
+            state.title.color = action.color;
             break;
         default:
             break;
     }
 }
 
+/* 抽离出store */
+/* 使用观察者模式，使数据变化的时候自动重新渲染 */
+function createStore(state, stateChanger) {
+    const listeners = [];
+    // 推入订阅函数
+    const subscrible = (listener) => listeners.push(listener);
+    const getState = () => state;
+    const dispatch = (action) => {
+        stateChanger(state, action);
+        // 将所有订阅的函数全部执行
+        listeners.forEach((listener) => listener());
+    };
+    return {getState, dispatch, subscrible};
+}
+
 class Chapter31 extends Component {
     componentDidMount() {
-        dispatch({type: 'UPDATE_TITLE_COLOR', color: 'green'});
-        renderApp(appState);
+        const store = createStore(appState, stateChanger);
+        // 订阅
+        store.subscrible(() => renderApp(store.getState()));
+        // 首次渲染
+        renderApp(store.getState());
+        // 往下改数据的时候就会自动调用渲染函数
+        store.dispatch({type: 'UPDATE_TITLE_COLOR', color: 'gray'});
+        store.dispatch({type: 'UPDATE_TITLE_TEXT', text: 'change by subscrible'});
     }
 
     render() {
