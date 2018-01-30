@@ -5,7 +5,6 @@ import React, {Component} from 'react';
 /* 渲染函数 */
 /* 本节优化如果数据无改变，就不执行对于的渲染函数 */
 function renderApp(newAppState, oldAppState = {}) {
-    console.log(newAppState, oldAppState);
     if (newAppState === oldAppState)
         return; // 数据没有变化就不渲染了
     console.log('render app...');
@@ -125,8 +124,6 @@ class Chapter34 extends Component {
         // 首次渲染
         renderApp(store.getState());
         // 往下改数据的时候就会自动调用渲染函数
-        store.dispatch({type: 'UPDATE_TITLE_COLOR', color: 'orange'});
-        // 下面执行会被return，因为数据没有改变
         store.dispatch({type: 'UPDATE_TITLE_COLOR', color: 'orange'});
         store.dispatch({type: 'UPDATE_TITLE_TEXT', text: 'change by subscrible watch state reducer'});
     }
