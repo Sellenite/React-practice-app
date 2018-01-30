@@ -5,7 +5,7 @@ import higherOrderComponent from './higherOrderComponent';
 /* 一般组件 */
 class InputWithUserName extends Component {
     render() {
-        return <input value={this.props.data} readOnly/>
+        return <input value={this.props.data} readOnly="readOnly"/>
     }
 }
 
@@ -20,7 +20,7 @@ class Chapter28 extends Component {
 
     render() {
         return (<div>
-            <InputWithUserName />
+            <InputWithUserName/>
         </div>);
     }
 }

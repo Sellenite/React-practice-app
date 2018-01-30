@@ -12,7 +12,7 @@ function higherOrderComponent(WarnrappedComponent, name) {
         }
 
         componentWillMount() {
-            const data = localStorage.getItem(name);
+            const data = localStorage.getItem(name) || '';
             this.setState({data: data});
         }
 
