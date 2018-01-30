@@ -7,6 +7,8 @@ import Chapter32 from './Chapter32';
 import Chapter33 from './Chapter33';
 import Chapter34 from './Chapter34';
 import Chapter35 from './Chapter35';
+import Chapter36 from './Chapter36/index';
+import Chapter38 from './Chapter38/index';
 
 class Stage3 extends Component {
     constructor() {
@@ -27,6 +29,8 @@ class Stage3 extends Component {
                 <Chapter33></Chapter33>
                 <Chapter34></Chapter34>
                 <Chapter35></Chapter35>
+                <Chapter36></Chapter36>
+                <Chapter38></Chapter38>
             </div>
         );
     }
