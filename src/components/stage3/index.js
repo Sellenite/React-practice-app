@@ -11,6 +11,8 @@ import Chapter36 from './Chapter36/index';
 import Chapter38 from './Chapter38/index';
 import Chapter41 from './Chapter41';
 import Chapter42 from './Chapter42/index';
+import Chapter43 from './Chapter43/index';
+import Chapter44 from './Chapter44/CommentApp';
 
 class Stage3 extends Component {
     constructor() {
@@ -35,6 +37,8 @@ class Stage3 extends Component {
                 <Chapter38></Chapter38>
                 <Chapter41></Chapter41>
                 <Chapter42></Chapter42>
+                <Chapter43></Chapter43>
+                <Chapter44></Chapter44>
             </div>
         );
     }

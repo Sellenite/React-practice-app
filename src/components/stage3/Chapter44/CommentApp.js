@@ -3,7 +3,7 @@ import './style.css';
 import CommentInput from './CommentInput';
 import CommentList from './CommentList';
 
-class Chapter25 extends Component {
+class Chapter44 extends Component {
     constructor() {
         super();
         this.state = {
@@ -54,4 +54,4 @@ class Chapter25 extends Component {
     }
 }
 
-export default Chapter25;
+export default Chapter44;
