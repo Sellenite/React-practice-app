@@ -21,6 +21,7 @@ function createStore(reducer) {
     return {getState, dispatch, subscrible};
 }
 
+/* reducer的职责是返回一个全新的state，而不是修改传入的state，是一个纯函数 */
 function themeReducer(state, action) {
     // 定义默认值
     if (!state)
