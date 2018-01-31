@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Header from './Header';
 import Content from './Content';
 
-/* 仿Redux + Context */
+/* 仿Redux + Context 第一步 */
 
 function createStore(reducer) {
     let state = null;

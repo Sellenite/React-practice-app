@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {createStore} from './redux';
-import {Provider} from './react-redux';
+import {createStore} from 'redux';
+import {Provider} from 'react-redux';
 
 import Header from './Header';
 import Content from './Content';
@@ -22,13 +22,14 @@ function themeReducer(state, action) {
 }
 
 // 创建store
-const store = createStore(themeReducer);
+// 第二个参数为开启浏览器对redux的调试
+const store = createStore(themeReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 // Provider只能够传入一个single-element
 class Index extends Component {
     constructor() {
         super();
-        this.state = {}
+        this.state = {};
     }
 
     render() {
@@ -39,12 +40,12 @@ class Index extends Component {
     }
 }
 
-class Chapter38 extends Component {
+class Chapter42 extends Component {
     render() {
         return (<Provider store={store}>
-            <Index/>
+            <Index></Index>
         </Provider>);
     }
 }
 
-export default Chapter38;
+export default Chapter42;
