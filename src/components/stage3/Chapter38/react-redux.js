@@ -28,6 +28,7 @@ export class Provider extends Component {
 // 需要告诉高阶组件需要什么数据和做什么，这里传入mapStateToProps和mapDispatchToProps
 // 这样的传参其实是一个设计，记得就好
 // 用于连接单个需要共享数据的子组件
+// 这个就是高阶组件
 export const connect = (mapStateToProps, mapDispatchToProps) => (WrappedComponent) => {
     class Connect extends Component {
         static contextTypes = {

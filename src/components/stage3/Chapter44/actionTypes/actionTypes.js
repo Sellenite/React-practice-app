@@ -1,0 +1,10 @@
+// action types
+const COMMENTS = {
+    INIT_COMMNETS: 'INIT_COMMNETS',
+    ADD_COMMENT: 'ADD_COMMENT',
+    DELETE_COMMENT: 'DELETE_COMMENT'
+}
+
+export {
+    COMMENTS
+};

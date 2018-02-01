@@ -12,7 +12,7 @@ import Chapter38 from './Chapter38/index';
 import Chapter41 from './Chapter41';
 import Chapter42 from './Chapter42/index';
 import Chapter43 from './Chapter43/index';
-import Chapter44 from './Chapter44/CommentApp';
+import Chapter44 from './Chapter44/index';
 
 class Stage3 extends Component {
     constructor() {

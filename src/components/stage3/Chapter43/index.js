@@ -31,7 +31,7 @@ function themeReducer(state, action) {
 
 // 创建store
 // 第二个参数为开启浏览器对redux的调试
-const store = createStore(themeReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const store = createStore(themeReducer);
 
 // Provider只能够传入一个single-element
 class Index extends Component {

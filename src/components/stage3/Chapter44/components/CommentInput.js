@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
+import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 
-class CommentInput extends Component {
+export default class CommentInput extends Component {
     static propTypes = {
+        username: PropTypes.any,
         onSubmit: PropTypes.func,
-        handleUsernameBlur: PropTypes.func,
-        username: PropTypes.any
+        onUserNameInputBlur: PropTypes.func
     }
 
     static defaultProps = {
@@ -13,29 +13,31 @@ class CommentInput extends Component {
     }
 
     constructor(props) {
-        super(props);
+        super(props)
+        /* super(props)的目的：在constructor中可以使用this.props，不传入就无法在constructor使用props */
+        // 使用props.xx和this.props.xx都可以
         this.state = {
-            username: props.username,
+            username: props.username, // 从 props 上取 username 字段
             content: ''
         }
     }
 
     componentDidMount() {
-        this.textarea.focus();
+        this.textarea.focus()
     }
 
     handleUsernameBlur(event) {
         if (this.props.onUserNameInputBlur) {
-            this.props.onUserNameInputBlur(event.target.value);
+            this.props.onUserNameInputBlur(event.target.value)
         }
     }
 
     handleUsernameChange(event) {
-        this.setState({username: event.target.value});
+        this.setState({username: event.target.value})
     }
 
     handleContentChange(event) {
-        this.setState({content: event.target.value});
+        this.setState({content: event.target.value})
     }
 
     handleSubmit() {
@@ -54,13 +56,13 @@ class CommentInput extends Component {
             <div className='comment-field'>
                 <span className='comment-field-name'>用户名：</span>
                 <div className='comment-field-input'>
-                    <input value={this.state.username} onChange={this.handleUsernameChange.bind(this)} onBlur={this.handleUsernameBlur.bind(this)}/>
+                    <input value={this.state.username} onBlur={this.handleUsernameBlur.bind(this)} onChange={this.handleUsernameChange.bind(this)}/>
                 </div>
             </div>
             <div className='comment-field'>
                 <span className='comment-field-name'>评论内容：</span>
                 <div className='comment-field-input'>
-                    <textarea value={this.state.content} onChange={this.handleContentChange.bind(this)} ref={(textarea) => this.textarea = textarea}/>
+                    <textarea ref={(textarea) => this.textarea = textarea} value={this.state.content} onChange={this.handleContentChange.bind(this)}/>
                 </div>
             </div>
             <div className='comment-field-button'>
@@ -68,8 +70,6 @@ class CommentInput extends Component {
                     发布
                 </button>
             </div>
-        </div>);
+        </div>)
     }
 }
-
-export default CommentInput;
