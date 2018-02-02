@@ -6,6 +6,7 @@ import './css/App.css';
 import Stage1 from './components/stage1/index.js';
 import Stage2 from './components/stage2/index.js';
 import Stage3 from './components/stage3/index.js';
+import Official from './components/Official/index.js';
 
 class App extends Component {
     render() {
@@ -22,6 +23,10 @@ class App extends Component {
                 <p>
                     Stage3 start ==================</p>
                 <Stage3/>
+                <p>
+                    Official Redux demo start ======================
+                </p>
+                <Official/>
             </header>
         </div>);
     }
