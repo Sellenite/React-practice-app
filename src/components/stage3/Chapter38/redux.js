@@ -1,3 +1,4 @@
+// 一般来说是一个store管理多个reducer，这里做的简化例子只做了一个reducer，没有做多个reducer合并的适配，注意，官方redux有combineReducers方法
 export function createStore(reducer) {
     let state = null;
     const listeners = [];

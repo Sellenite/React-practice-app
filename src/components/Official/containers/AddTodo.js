@@ -15,10 +15,6 @@ class AddTodoContainer extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return {}
-}
-
 const mapDispatchToProps = (dispatch) => {
     return {
         onAddClick: (text) => {
@@ -27,6 +23,6 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-AddTodoContainer = connect(mapStateToProps, mapDispatchToProps)(AddTodoContainer);
+AddTodoContainer = connect(null, mapDispatchToProps)(AddTodoContainer);
 
 export default AddTodoContainer;

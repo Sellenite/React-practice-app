@@ -4,7 +4,7 @@
 // function incrementAsync() {
 //     return dispatch => {
 //         setTimeout(() => {
-//             // Yay! Can invoke sync or async actions with `dispatch`
+//              Yay! Can invoke sync or async actions with `dispatch`
 //             dispatch(increment());
 //         }, 1000);
 //     };
@@ -15,6 +15,7 @@
 export const ADD_TODO = 'ADD_TODO';
 export const COMPLETE_TODO = 'COMPLETE_TODO';
 export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER';
+export const TOGGLE_VISIBLE_TODOS = 'TOGGLE_VISIBLE_TODOS';
 
 /* 其它的常量 */
 

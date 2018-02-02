@@ -17,10 +17,14 @@ class Footer extends Component {
     renderFilter(filter, name) {
         if (filter === this.props.filter)
             return name;
-        return (<a href="#" onClick={e => {
+        return (<span onClick={e => {
                 e.preventDefault();
                 this.props.onFilterChange(filter);
-            }}>{name}</a>);
+            }} style={{
+                color: 'red',
+                textDecoration: 'underline',
+                cursor: 'pointer'
+            }}>{name}</span>);
     }
 
     render() {

@@ -14,6 +14,10 @@ class AddTodo extends Component {
 
     handleClick(e) {
         let value = this.input.value.trim();
+        if (!value) {
+            alert('请输入内容');
+            return;
+        }
         this.props.onAddClick(value);
         this.input.value = ''
     }
