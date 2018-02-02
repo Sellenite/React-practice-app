@@ -11,7 +11,7 @@ class TodoListContainer extends Component {
         onTodoClick: PropTypes.func
     }
     render() {
-        return (<TodoList todos={this.props.todos} onTodoClick={(index) => this.props.onTodoClick(index)}/>);
+        return (<TodoList todos={this.props.todos} onTodoClick={(id) => this.props.onTodoClick(id)}/>);
     }
 }
 
@@ -37,8 +37,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onTodoClick: (index) => {
-            dispatch(completeTodo(index));
+        onTodoClick: (id) => {
+            dispatch(completeTodo(id));
         }
     }
 }
