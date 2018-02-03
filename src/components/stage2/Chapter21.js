@@ -8,8 +8,8 @@ class Chapter21 extends Component {
 
     /* ref获取需要在DidMount后 */
     componentDidMount() {
-        console.log(this.refs.para1);
-        console.log(this.para2);
+        // console.log(this.refs.para1);
+        // console.log(this.para2);
     }
 
     render() {

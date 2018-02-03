@@ -13,7 +13,7 @@
 /* action 类型 */
 
 export const ADD_TODO = 'ADD_TODO';
-export const COMPLETE_TODO = 'COMPLETE_TODO';
+export const TOGGLE_TODO = 'TOGGLE_TODO';
 export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER';
 export const TOGGLE_VISIBLE_TODOS = 'TOGGLE_VISIBLE_TODOS';
 
@@ -31,7 +31,7 @@ export const addTodo = (text) => {
 }
 
 export const completeTodo = (id) => {
-    return {type: COMPLETE_TODO, id}
+    return {type: TOGGLE_TODO, id}
 }
 
 export const setVisibility = (filter) => {

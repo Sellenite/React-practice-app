@@ -19,7 +19,6 @@ const appState = {
 function renderApp(newAppState, oldAppState = {}) {
     if (newAppState === oldAppState)
         return; // 数据没有变化就不渲染了
-    console.log('render app...');
     renderTitle(newAppState.title, oldAppState.title);
     renderContent(newAppState.content, oldAppState.content);
 }
@@ -27,7 +26,6 @@ function renderApp(newAppState, oldAppState = {}) {
 function renderTitle(newTitle, oldTitle = {}) {
     if (newTitle === oldTitle)
         return;
-    console.log('render title...');
     const titleDOM = document.getElementById('title3');
     titleDOM.innerHTML = newTitle.text;
     titleDOM.style.color = newTitle.color;
@@ -36,7 +34,6 @@ function renderTitle(newTitle, oldTitle = {}) {
 function renderContent(newContent, oldContent = {}) {
     if (newContent === oldContent)
         return;
-    console.log('render content...');
     const contentDOM = document.getElementById('content3');
     contentDOM.innerHTML = newContent.text;
     contentDOM.style.color = newContent.color;
@@ -113,10 +110,15 @@ class Chapter33 extends Component {
             a: 233,
             c: 4
         };
-        console.log(obj2); // {a: 233, b: 2, c: 4}
+        // console.log(obj2);  {a: 233, b: 2, c: 4}
+        let arr = []
+        for (let [key, value] of Object.entries(obj2)) {
+            arr.push(`${key}: ${value}`, '; ');
+        }
         return (<div>
             <div id="title3"></div>
             <div id="content3"></div>
+            <div>{arr}</div>
         </div>);
     }
 }

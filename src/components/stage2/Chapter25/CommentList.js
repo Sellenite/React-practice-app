@@ -30,7 +30,7 @@ class CommentList extends Component {
             {/* 其实数据也可以存在这里，但是万一以后有可能又需要一个差不多的list，而且是用同一个数据源，那么在没有redux管理数据之前，状态提升是最佳选择 */}
             {
                 this.props.comments.map((comment, index) => {
-                    return <Comment comment={comment} key={index} index={index} onDeleteComment={this.handleDeleteComment.bind(this)}></Comment>
+                    return <Comment comment={comment} key={window.crypto.getRandomValues(new Uint8Array(16))} index={index} onDeleteComment={this.handleDeleteComment.bind(this)}></Comment>
                 })
             }
         </div>);

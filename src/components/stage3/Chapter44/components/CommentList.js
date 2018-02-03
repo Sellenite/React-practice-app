@@ -20,7 +20,7 @@ export default class CommentList extends Component {
 
     render() {
         return (<div>
-            {this.props.comments.map((comment, i) => <Comment comment={comment} key={comment.createdTime} index={i} onDeleteComment={this.handleDeleteComment.bind(this)}/>)}
+            {this.props.comments.map((comment, i) => <Comment comment={comment} key={window.crypto.getRandomValues(new Uint8Array(16))} index={i} onDeleteComment={this.handleDeleteComment.bind(this)}/>)}
         </div>)
     }
 }

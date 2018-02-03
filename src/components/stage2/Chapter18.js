@@ -9,7 +9,7 @@ class Header extends Component {
     }
 
     componentWillMount() {
-        console.log('componentWillMount');
+
     }
 
     render() {
@@ -19,11 +19,11 @@ class Header extends Component {
     }
 
     componentDidMount() {
-        console.log('componentDidMount');
+
     }
 
     componentWillUnmount() {
-        console.log('componentWillUnmount');
+        
     }
 }
 

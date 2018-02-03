@@ -34,7 +34,7 @@ class Comment extends Component {
 
     _updateTimeString() {
         const comment = this.props.comment;
-        const duration = (+ new Date() - comment.createTime) / 1000;
+        const duration = (+new Date() - comment.createdTime) / 1000;
         this.setState({
             timeString: duration > 60
                 ? `${Math.round(duration / 60)} 分钟前`

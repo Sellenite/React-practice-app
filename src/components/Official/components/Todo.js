@@ -13,9 +13,8 @@ class Todo extends Component {
                 textDecoration: this.props.completed
                     ? 'line-through'
                     : 'none',
-                cursor: this.props.completed
-                    ? 'default'
-                    : 'pointer'
+                cursor: 'pointer',
+                userSelect: 'none'
             }}>
             {this.props.text}
         </li>);
