@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 
 import CommentInput from '../components/CommentInput'
-import {COMMENTS} from '../actionTypes/actionTypes';
+import {addComment} from '../actions/index';
 
 // CommentInputContainer
 // 负责用户名的加载、保存，评论的发布
@@ -75,7 +75,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         onSubmit: (comment) => {
-            dispatch({type: COMMENTS.ADD_COMMENT, comment})
+            dispatch(addComment(comment));
         }
     }
 }

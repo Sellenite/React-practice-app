@@ -45,7 +45,7 @@ export default class CommentInput extends Component {
             this.props.onSubmit({
                 username: this.state.username,
                 content: this.state.content,
-                createdTime: + new Date()
+                createdTime: Date.now()
             })
         }
         this.setState({content: ''})

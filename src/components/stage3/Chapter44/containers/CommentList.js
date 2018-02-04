@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 
 import CommentList from '../components/CommentList'
-import {COMMENTS} from '../actionTypes/actionTypes';
+import {initComments, deleteComment} from '../actions/index';
 
 // CommentListContainer
 // 一个 Smart 组件，负责评论列表数据的加载、初始化、删除评论
@@ -65,11 +65,11 @@ const mapDispatchToProps = (dispatch) => {
         // 当从 LocalStorage 加载评论列表以后就会通过这个方法
         // 把评论列表初始化到 state 当中
         initComments: (comments) => {
-            dispatch({type: COMMENTS.INIT_COMMNETS, comments})
+            dispatch(initComments(comments));
         },
         // 删除评论
         onDeleteComment: (commentIndex) => {
-            dispatch({type: COMMENTS.DELETE_COMMENT, commentIndex})
+            dispatch(deleteComment(commentIndex));
         }
     }
 }

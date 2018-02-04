@@ -7,7 +7,7 @@ import CommentApp from './containers/CommentApp'
 import commentsReducer from './reducers/comments'
 import './index.css'
 
-const store = createStore(commentsReducer);
+const store = createStore(commentsReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 export default class Chapter44 extends Component {
     render() {
