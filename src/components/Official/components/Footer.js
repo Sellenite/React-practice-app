@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
 class Footer extends Component {
+    /* 取得来自connect后的FooterContainer的传入props */
     static propTypes = {
         onFilterChange: PropTypes.func,
         filter: PropTypes.oneOf(['SHOW_ALL', 'SHOW_COMPLETED', 'SHOW_ACTIVE'])

@@ -1,19 +1,7 @@
-import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {completeTodo, VisibilityFilters} from '../actions/index';
-import PropTypes from 'prop-types';
 
 import TodoList from '../components/TodoList';
-
-class TodoListContainer extends Component {
-    static propTypes = {
-        todos: PropTypes.array,
-        onTodoClick: PropTypes.func
-    }
-    render() {
-        return (<TodoList todos={this.props.todos} onTodoClick={(id) => this.props.onTodoClick(id)}/>);
-    }
-}
 
 /* 在这里根据filter对todos的显示筛选 */
 const mapVisibleTodos = (todos, filter) => {
@@ -29,6 +17,7 @@ const mapVisibleTodos = (todos, filter) => {
     }
 }
 
+/* mapStateToProps和onFilterChange的return内容都作为props传入component，在component可以用this.props.xxx拿到 */
 const mapStateToProps = (state) => {
     return {
         todos: mapVisibleTodos(state.todos, state.visibilityFilter)
@@ -43,6 +32,6 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-TodoListContainer = connect(mapStateToProps, mapDispatchToProps)(TodoListContainer);
+const TodoListContainer = connect(mapStateToProps, mapDispatchToProps)(TodoList);
 
 export default TodoListContainer;

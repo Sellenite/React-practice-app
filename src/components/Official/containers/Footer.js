@@ -1,21 +1,9 @@
-import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {setVisibility} from '../actions/index';
-import PropTypes from 'prop-types';
 
 import Footer from '../components/Footer';
 
-class FooterContainer extends Component {
-    static propTypes = {
-        filter: PropTypes.string,
-        onFilterChange: PropTypes.func
-    }
-
-    render() {
-        return (<Footer filter={this.props.filter} onFilterChange={(filter) => this.props.onFilterChange(filter)}/>);
-    }
-}
-
+/* mapStateToProps和onFilterChange的return内容都作为props传入component，在component可以用this.props.xxx拿到 */
 const mapStateToProps = (state) => {
     return {filter: state.visibilityFilter}
 }
@@ -28,6 +16,6 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-FooterContainer = connect(mapStateToProps, mapDispatchToProps)(FooterContainer);
+const FooterContainer = connect(mapStateToProps, mapDispatchToProps)(Footer);
 
 export default FooterContainer;

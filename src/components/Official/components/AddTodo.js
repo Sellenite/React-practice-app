@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
 class AddTodo extends Component {
+    /* 取得来自connect后的AddTodoContainer的传入props */
     static propTypes = {
         onAddClick: PropTypes.func
     }
