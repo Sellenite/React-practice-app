@@ -19,6 +19,9 @@ class Index extends Component {
 
 let store = createStore(reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
+// 手动订阅，每次操作一次dispatch就会执行所有订阅的内容
+store.subscribe(() => console.log(store.getState()));
+
 class Official extends Component {
 
     render() {

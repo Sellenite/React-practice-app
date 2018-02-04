@@ -20,7 +20,7 @@ class AddTodo extends Component {
             return;
         }
         this.props.onAddClick(value);
-        this.input.value = ''
+        this.input.value = '';
     }
 
     render() {
