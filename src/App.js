@@ -7,6 +7,7 @@ import Stage1 from './components/stage1/index.js';
 import Stage2 from './components/stage2/index.js';
 import Stage3 from './components/stage3/index.js';
 import Official from './components/Official/index.js';
+import './Advanced/Async/index.js';
 
 class App extends Component {
     render() {
@@ -27,6 +28,9 @@ class App extends Component {
                     Official Redux demo start ======================
                 </p>
                 <Official/>
+                <p>
+                    Async Redux demo start =========================
+                </p>
             </header>
         </div>);
     }
