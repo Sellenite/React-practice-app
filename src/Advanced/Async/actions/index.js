@@ -29,7 +29,7 @@ export const receivePosts = (subreddit, json) => {
 }
 
 /* thunk action creator */
-export const fetchPosts = (subreddit) => {
+const fetchPosts = (subreddit) => {
     // Thunk middleware 知道如何处理函数。
     // 这里把 dispatch 方法通过参数的形式传给函数，
     // 以此来让它自己也能 dispatch action。
@@ -44,6 +44,7 @@ export const fetchPosts = (subreddit) => {
 
         // 这个案例中，我们返回一个等待处理的 promise。
         // 这并不是 redux middleware 所必须的，但这对于我们而言很方便。
+        // 这里返回的是fetch的Promise对象，所以fetchPosts可以使用.then()，传参是下面的json，也就是state
         return fetch(`http://www.subreddit.com/r/${subreddit}.json`).then(response => response.json()).then(json =>
         // 可以多次 dispatch！
         // 这里，使用 API 请求结果来更新应用的 state。
@@ -53,6 +54,7 @@ export const fetchPosts = (subreddit) => {
     }
 }
 
+/* 假如我连续进行了两次请求，在第一次请求的fetch没完成之前，isFetching还是处于true状态，这时候第二个请求就会被驳回，等待第一个请求结束，具体查看fetchPostsIfNeeded的最后结果 */
 const shouldFetchPosts = (state, subreddit) => {
     const posts = state.postsBySubreddit[subreddit];
     if (!posts) {
@@ -74,9 +76,11 @@ export const fetchPostsIfNeeded = (subreddit) => {
     return(dispatch, getState) => {
         if (shouldFetchPosts(getState(), subreddit)) {
             // 在 thunk 里 dispatch 另一个 thunk！
-
+            // 这里可以return一个参数，由于fetchPosts返回一个Promise，所以这里的fetchPostsIfNeeded可以使用.then()
+            return dispatch(fetchPosts(subreddit));
         } else {
-
+            // 告诉调用代码不需要再等待。
+            return Promise.resolve('posts is fetching, please wait...');
         }
     }
 }
