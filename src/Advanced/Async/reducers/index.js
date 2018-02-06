@@ -1,7 +1,14 @@
-import {combineReducers} from 'redux';
-import {SELECT_SUBREDDIT, INVALIDATE_SUBREDDIT, REQUEST_POSTS, RECEIVE_POSTS} from '../actions';
+import {
+    combineReducers
+} from 'redux';
+import {
+    SELECT_SUBREDDIT,
+    INVALIDATE_SUBREDDIT,
+    REQUEST_POSTS,
+    RECEIVE_POSTS
+} from '../actions';
 
-const selectedsubreddit = (state = 'vuejs', action) => {
+const selectedSubreddit = (state = 'reactjs', action) => {
     switch (action.type) {
         case SELECT_SUBREDDIT:
             return action.subreddit;
@@ -55,6 +62,9 @@ const postsBySubreddit = (state = {}, action) => {
     }
 }
 
-const rootReducer = combineReducers({selectedsubreddit, postsBySubreddit});
+const rootReducer = combineReducers({
+    selectedSubreddit,
+    postsBySubreddit
+});
 
 export default rootReducer;

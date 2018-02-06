@@ -1,4 +1,6 @@
-import React, {Component} from 'react';
+import React, {
+    Component
+} from 'react';
 import logo from './images/logo.svg';
 import 'normalize.css';
 import './css/App.css';
@@ -7,7 +9,7 @@ import Stage1 from './components/stage1/index.js';
 import Stage2 from './components/stage2/index.js';
 import Stage3 from './components/stage3/index.js';
 import Official from './components/Official/index.js';
-import './Advanced/Async/index.js';
+import Async from './Advanced/Async/index.js';
 
 class App extends Component {
     render() {
@@ -31,6 +33,7 @@ class App extends Component {
                 <p>
                     Async Redux demo start =========================
                 </p>
+                <Async />
             </header>
         </div>);
     }
