@@ -2,7 +2,7 @@
  * @Author: Sellenite
  * @Date:   2018-02-06 14:48:12
  * @Last Modified by:   Sellenite
- * @Last Modified time: 2018-02-06 15:58:26
+ * @Last Modified time: 2018-02-06 21:06:40
  */
 
 import React, {
@@ -15,14 +15,6 @@ export default class Posts extends Component {
 		posts: PropTypes.arrayOf(PropTypes.shape({
 			title: PropTypes.string
 		}))
-	}
-
-	static defaultProps = {
-		posts: [{
-			title: 'yuuhei'
-		}, {
-			title: 'satellite'
-		}]
 	}
 
 	render() {

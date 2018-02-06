@@ -38,6 +38,7 @@ export const receivePosts = (subreddit, json) => {
 }
 
 /* thunk action creator */
+/* 你可以使用任意多异步的 middleware 去做你想做的事情，但是需要使用普通对象作为最后一个被 dispatch 的 action */
 const fetchPosts = (subreddit) => {
     // Thunk middleware 知道如何处理函数。
     // 这里把 dispatch 方法通过参数的形式传给函数，
@@ -57,6 +58,7 @@ const fetchPosts = (subreddit) => {
         return fetch(`http://www.subreddit.com/r/${subreddit}.json`).then(response => response.json()).then(json =>
             // 可以多次 dispatch！
             // 这里，使用 API 请求结果来更新应用的 state。
+            // chunk中最后一个被dispatch的action，是一个普通对象，用来带回同步方式
             dispatch(receivePosts(subreddit, json)));
         // 在实际应用中，还需要
         // 捕获网络请求的异常。
@@ -80,7 +82,7 @@ export const fetchPostsIfNeeded = (subreddit) => {
     // 注意这个函数也接收了 getState() 方法
     // 它让你选择接下来 dispatch 什么。
 
-    // 当缓存的值是可用时，
+    // 当缓存的值是可用时，使用缓存值
     // 减少网络请求很有用。
     return (dispatch, getState) => {
         if (shouldFetchPosts(getState(), subreddit)) {
@@ -89,7 +91,7 @@ export const fetchPostsIfNeeded = (subreddit) => {
             return dispatch(fetchPosts(subreddit));
         } else {
             // 告诉调用代码不需要再等待，手动触发Promise，让fetchPostsIfNeeded执行后有.then()方法。
-            return Promise.resolve('posts is fetching, please wait...');
+            return Promise.resolve('post data is already cached, you can press refresh to update current post lists.');
         }
     }
 }

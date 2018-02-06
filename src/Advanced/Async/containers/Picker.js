@@ -113,7 +113,8 @@ const mapDispatchToProps = (dispatch) => {
 			dispatch(selectSubreddit(nextSubreddit));
 		},
 		handleFetchPosts: (selectedSubreddit) => {
-			dispatch(fetchPostsIfNeeded(selectedSubreddit));
+			// fetchPostsIfNeeded返回的是一个Promise对象，所以有.then()方法
+			dispatch(fetchPostsIfNeeded(selectedSubreddit)).then(state => console.log(state));
 		},
 		handleInvalidateSubreddit: (selectedSubreddit) => {
 			dispatch(invalidateSubreddit(selectedSubreddit));
