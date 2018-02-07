@@ -52,8 +52,8 @@ const postsBySubreddit = (state = {}, action) => {
     switch (action.type) {
         /* 多项匹配，三个case都执行以下return */
         case INVALIDATE_SUBREDDIT:
-        case RECEIVE_POSTS:
         case REQUEST_POSTS:
+        case RECEIVE_POSTS:
             return {
                 ...state,
                 [action.subreddit]: posts(state[action.subreddit], action)
