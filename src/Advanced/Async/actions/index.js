@@ -28,7 +28,7 @@ export const requestPosts = (subreddit) => {
     }
 }
 
-export const receivePosts = (subreddit, json) => {
+const receivePosts = (subreddit, json) => {
     return {
         type: RECEIVE_POSTS,
         subreddit,
