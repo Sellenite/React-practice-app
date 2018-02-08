@@ -1,11 +1,12 @@
-import React, {Component} from 'react';
+import React, {
+    Component
+} from 'react';
 import Chapter7 from './Chapter7';
 import Chapter9 from './Chapter9';
 import Chapter10 from './Chapter10';
 import Chapter11 from './Chapter11';
 import Chapter13 from './Chapter13';
 import Chapter14 from './Chapter14/CommentApp';
-import Tab1 from './Tab1';
 
 class Stage1 extends Component {
     constructor() {
@@ -29,7 +30,6 @@ class Stage1 extends Component {
 
     render() {
         return (<div className="Stage1">
-            <Tab1></Tab1>
             <Chapter7></Chapter7>
             <Chapter9></Chapter9>
             <Chapter10></Chapter10>
