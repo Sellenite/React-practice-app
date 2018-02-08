@@ -3,7 +3,7 @@ import React, {
 } from 'react';
 import logo from './images/logo.svg';
 import 'normalize.css';
-import './css/App.css';
+import './css/App.scss';
 
 import {
     Route,
