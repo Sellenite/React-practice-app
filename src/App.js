@@ -13,8 +13,9 @@ import {
 import Stage1 from './components/stage1/index.js';
 import Stage2 from './components/stage2/index.js';
 import Stage3 from './components/stage3/index.js';
-import Official from './components/Official/index.js';
-import Async from './Advanced/Async/index.js';
+
+import Redux from './Advanced/Redux/index.js';
+import ReactRouter from './Advanced/React-router/index.js';
 
 class App extends Component {
     render() {
@@ -28,8 +29,8 @@ class App extends Component {
                         <Link to="/">Stage1</Link>
                         <Link to="/Stage2">Stage2</Link>
                         <Link to="/Stage3">Stage3</Link>
-                        <Link to="/Official">Official</Link>
-                        <Link to="/Async">Async</Link>
+                        <Link to="/Redux">Redux</Link>
+                        <Link to="/ReactRouter">ReactRouter</Link>
                     </li>
                 </ul>
             </header>
@@ -37,8 +38,8 @@ class App extends Component {
                 <Route exact path="/" component={Stage1} />
                 <Route path="/Stage2" component={Stage2} />
                 <Route path="/Stage3" component={Stage3} />
-                <Route path="/Official" component={Official} />
-                <Route path="/Async" component={Async} />
+                <Route path="/Redux" component={Redux} />
+                <Route path="/ReactRouter" component={ReactRouter} />
             </div>
         </div>);
     }
