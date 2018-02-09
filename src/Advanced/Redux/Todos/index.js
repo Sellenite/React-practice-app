@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
-import {createStore} from 'redux';
-import {Provider} from 'react-redux';
+import React, { Component } from 'react';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 import reducers from './reducers/index';
-import {addTodo} from './actions/index';
+import { addTodo } from './actions/index';
 
 import AddTodo from './containers/AddTodo';
 import TodoList from './containers/TodoList';
@@ -10,11 +10,13 @@ import Footer from './containers/Footer';
 
 class Index extends Component {
     render() {
-        return (<div>
-            <AddTodo></AddTodo>
-            <TodoList></TodoList>
-            <Footer></Footer>
-        </div>);
+        return (
+            <div>
+                <AddTodo></AddTodo>
+                <TodoList></TodoList>
+                <Footer></Footer>
+            </div>
+        )
     }
 }
 
@@ -28,13 +30,15 @@ unsubscribe();
 // 手动执行用户行为，测试添加todo功能
 store.dispatch(addTodo('这个是用于测试手动加入的'));
 
-class Official extends Component {
+class Todos extends Component {
 
     render() {
-        return (<Provider store={store}>
-            <Index/>
-        </Provider>);
+        return (
+            <Provider store={store}>
+                <Index/>
+            </Provider>
+        )
     }
 }
 
-export default Official;
+export default Todos;

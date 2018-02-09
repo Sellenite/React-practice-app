@@ -1,18 +1,8 @@
-import React, {
-	Component
-} from 'react';
+import React, { Component} from 'react';
 import thunkMiddleware from 'redux-thunk';
-import {
-	createLogger
-} from 'redux-logger';
-import {
-	createStore,
-	applyMiddleware,
-	compose
-} from 'redux';
-import {
-	Provider
-} from 'react-redux';
+import { createLogger} from 'redux-logger';
+import { createStore, applyMiddleware, compose} from 'redux';
+import { Provider} from 'react-redux';
 import rootReducer from './reducers';
 
 import AsyncApp from './containers/AsyncApp';
@@ -32,11 +22,11 @@ const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunkMid
 // store.dispatch(fetchPostsIfNeeded('reactjs')).then((state) => console.log(state));
 
 export default class Async extends Component {
-	render() {
-		return (
-			<Provider store={store}>
-				<AsyncApp />
-			</Provider>
-		);
-	}
+    render() {
+        return (
+            <Provider store={store}>
+                <AsyncApp />
+            </Provider>
+        )
+    }
 }

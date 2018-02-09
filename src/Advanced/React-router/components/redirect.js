@@ -11,7 +11,7 @@ const RerirectPage = ({match, location, history}) => {
             <StatusBarWithRouter />
             <ul>
                 <li>
-                    { /* 自定义Link */ }
+                    {/* 自定义Link */}
                     <CustomLink to={`${match.url}/public`} label={'Public Page'} />
                 </li>
                 <li>
@@ -20,7 +20,7 @@ const RerirectPage = ({match, location, history}) => {
             </ul>
             <div>
                 <Route path={`${match.url}/public`} component={Public} />
-                { /* 自定义组件，在里面进行一些跳转包装 */ }
+                {/* 自定义组件，在里面进行一些跳转包装 */}
                 <PrivateRoute path={`${match.url}/protected`} />
                 <Route path={`${match.url}/login`} component={Login} />
             </div>
@@ -48,8 +48,8 @@ const StatusBar = ({match, location, history}) => {
             <p>
                 Welcome!
                 <button onClick={() => {
-                fakeAction.doSignout(() => history.push(`${match.url}`))
-            }}>
+                                     fakeAction.doSignout(() => history.push(`${match.url}`))
+                                 }}>
                     Sign out
                 </button>
             </p>
@@ -115,7 +115,8 @@ class Login extends Component {
         return (
             <div>
                 <p>
-                    You must log in to view the page at {Redirectfrom}
+                    You must log in to view the page at
+                    {Redirectfrom}
                 </p>
                 <button onClick={this.login.bind(this)}>
                     Log in
