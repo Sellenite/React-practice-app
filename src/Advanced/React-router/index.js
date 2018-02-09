@@ -2,7 +2,7 @@
  * @Author: yuuhei
  * @Date:   2018-02-08 14:36:24
  * @Last Modified by:   yuuhei
- * @Last Modified time: 2018-02-08 17:24:21
+ * @Last Modified time: 2018-02-09 14:55:35
  */
 
 import React, {
@@ -15,19 +15,8 @@ import {
 } from 'react-router-dom';
 import './index.scss';
 
+import ParamsPage from './components/params.js';
 import RerirectPage from './components/redirect.js';
-
-/* stateless component */
-/* 在括号内接收props，match是由于路由组件传进来的 */
-const Params = ({
-	match
-}) => {
-	return (
-		<div>
-			<p>Selected: {match.params.id}</p>
-		</div>
-	);
-}
 
 class ReactRouter extends Component {
 	render() {
@@ -44,7 +33,7 @@ class ReactRouter extends Component {
 					</ul>
 				</header>
 				<div>
-					<Route path={`${match.url}/:id`} component={Params}/>
+					<Route path={`${match.url}/:id`} component={ParamsPage}/>
 					<Route path={`${match.url}/redirect`} component={RerirectPage}/>
 					<Route exact path={`${match.url}`} render={() => {
 						return <h3>Please select one</h3>

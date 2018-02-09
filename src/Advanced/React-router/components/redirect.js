@@ -1,13 +1,13 @@
-/* 包含例子：权限Redirect，CustomLink */
 import React, {
     Component
 } from 'react';
 import {
     Route,
-    Link,
     Redirect,
     withRouter
 } from 'react-router-dom';
+
+import CustomLink from './custom-link.js';
 
 /* match.url其实对于子路由Route来说就是该路由RerirectPage的path */
 /* 每个路由被用component或render渲染出来的都有match, location, history这三个props */
@@ -35,18 +35,6 @@ const RerirectPage = ({
                 <Route path={`${match.url}/login`} component={Login} />
             </div>
         </div>
-    );
-}
-
-/* 自定义Link，使用Route和children进行配合渲染，路由匹配时match有值，否则为null */
-/* 利用children传入的match是否为true可以进行一些当前路由的样式修改 */
-const CustomLink = ({
-        to,
-        label
-    }) => {
-        return (
-                <Route path={to} children={({match}) => <Link to={to} className={match ? 'activeLink' : 'normalLink'}>{label}</Link>
-        }/>
     );
 }
 
