@@ -1,41 +1,31 @@
-import React, {
-    Component
-} from 'react';
-import {
-    Route,
-    Redirect,
-    withRouter
-} from 'react-router-dom';
+import React, { Component } from 'react';
+import { Route, Redirect, withRouter } from 'react-router-dom';
 
 import CustomLink from './custom-link.js';
 
 /* match.url其实对于子路由Route来说就是该路由RerirectPage的path */
 /* 每个路由被用component或render渲染出来的都有match, location, history这三个props */
-const RerirectPage = ({
-    match,
-    location,
-    history
-}) => {
+const RerirectPage = ({match, location, history}) => {
     return (
         <div>
             <StatusBarWithRouter />
             <ul>
                 <li>
-                    {/* 自定义Link */}
-                    <CustomLink to={`${match.url}/public`} label={'Public Page'}/>
+                    { /* 自定义Link */ }
+                    <CustomLink to={`${match.url}/public`} label={'Public Page'} />
                 </li>
                 <li>
-                    <CustomLink to={`${match.url}/protected`} label={'Protected Page'}/>
+                    <CustomLink to={`${match.url}/protected`} label={'Protected Page'} />
                 </li>
             </ul>
             <div>
                 <Route path={`${match.url}/public`} component={Public} />
-                {/* 自定义组件，在里面进行一些跳转包装 */}
+                { /* 自定义组件，在里面进行一些跳转包装 */ }
                 <PrivateRoute path={`${match.url}/protected`} />
                 <Route path={`${match.url}/login`} component={Login} />
             </div>
         </div>
-    );
+    )
 }
 
 /* 模拟状态 */
@@ -52,23 +42,24 @@ const fakeAction = {
 }
 
 /* 使用了withRouter高阶组件可以在props得到{ match, location, history } */
-const StatusBar = ({
-    match,
-    location,
-    history
-}) => {
+const StatusBar = ({match, location, history}) => {
     if (fakeAction.isLogin) {
         return (
             <p>
-                Welcome! <button onClick={() => {
-                    fakeAction.doSignout(() => history.push(`${match.url}`))
-                }}>Sign out</button>
+                Welcome!
+                <button onClick={() => {
+                fakeAction.doSignout(() => history.push(`${match.url}`))
+            }}>
+                    Sign out
+                </button>
             </p>
-        );
+        )
     } else {
         return (
-            <p>You are not logged in.</p>
-        );
+            <p>
+                You are not logged in.
+            </p>
+        )
     }
 }
 
@@ -77,12 +68,10 @@ const StatusBarWithRouter = withRouter(StatusBar);
 
 /* 在Route外面包裹一层 */
 /* render和component这两个属性功能相似，render可以进行返回一个jsx */
-const PrivateRoute = ({
-    ...path
-}) => {
+const PrivateRoute = ({...path}) => {
     return (
         <Route {...path} render={PrivateRouteRender} />
-    );
+    )
 }
 
 /* Route中的render得到的props与使用Route的component传入的几个路由props相同，都是match, location, history */
@@ -125,8 +114,12 @@ class Login extends Component {
 
         return (
             <div>
-                <p>You must log in to view the page at {Redirectfrom}</p>
-                <button onClick={this.login.bind(this)}>Log in</button>
+                <p>
+                    You must log in to view the page at {Redirectfrom}
+                </p>
+                <button onClick={this.login.bind(this)}>
+                    Log in
+                </button>
             </div>
         )
     }
