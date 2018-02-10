@@ -2,7 +2,7 @@
  * @Author: yuuhei
  * @Date:   2018-02-08 14:36:24
  * @Last Modified by:   Sellenite
- * @Last Modified time: 2018-02-10 11:20:55
+ * @Last Modified time: 2018-02-10 14:36:50
  */
 
 import React, { Component } from 'react';
@@ -14,6 +14,7 @@ import ParamsPage from './components/params.js';
 import RerirectPage from './components/redirect.js';
 import PreventTransition from './components/prevent-transition.js';
 import NoMatch from './components/nomatch.js';
+import Sidebar from './components/sidebar.js';
 
 class ReactRouter extends Component {
     render() {
@@ -32,6 +33,9 @@ class ReactRouter extends Component {
                             <Link to={`${match.url}/nomatch`}>
                                 nomatch
                             </Link>
+                            <Link to={`${match.url}/sidebar`}>
+                                sidebar
+                            </Link>
                         </li>
                     </ul>
                 </header>
@@ -43,6 +47,7 @@ class ReactRouter extends Component {
                                                                }} />
                     <Route path={`${match.url}/prevent-transition`} component={PreventTransition} />
                     <Route path={`${match.url}/nomatch`} component={NoMatch} />
+                    <Route path={`${match.url}/sidebar`} component={Sidebar} />
                 </div>
             </div>
         )
