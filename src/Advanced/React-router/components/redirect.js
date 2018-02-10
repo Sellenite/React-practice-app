@@ -21,7 +21,7 @@ const RerirectPage = ({match, location, history}) => {
             <div>
                 <Route path={`${match.url}/public`} component={Public} />
                 {/* 自定义组件，在里面进行一些跳转包装 */}
-                <PrivateRoute path={`${match.url}/protected`} />
+                <PrivateRoute path={`${match.url}/protected`} redirectPath={`${match.url}/login`} component={Protected} />
                 <Route path={`${match.url}/login`} component={Login} />
             </div>
         </div>
@@ -68,22 +68,16 @@ const StatusBarWithRouter = withRouter(StatusBar);
 
 /* 在Route外面包裹一层 */
 /* render和component这两个属性功能相似，render可以进行返回一个jsx */
-const PrivateRoute = ({...path}) => {
-    return (
-        <Route {...path} render={PrivateRouteRender} />
-    )
-}
-
 /* Route中的render得到的props与使用Route的component传入的几个路由props相同，都是match, location, history */
-const PrivateRouteRender = (props) => {
-    // console.log(props); // { match, location, history, ... }
-    if (fakeAction.isLogin) {
-        // 登录后渲染被保护起来的组件
-        return <Protected />
-    } else {
-        // 否则进行跳转
-        return <Redirect to={'/ReactRouter/redirect/login'} />
-    }
+/* 这里对传入的component做一个重命名处理 */
+const PrivateRoute = ({component: PrivateComponent, redirectPath, ...rest}) => {
+    return (
+        <Route {...rest} render={(props) => {
+                             return (
+                             fakeAction.isLogin ? <PrivateComponent /> : <Redirect to={redirectPath} />
+                             )
+                         }} />
+    )
 }
 
 const Public = () => <h3>Public</h3>;

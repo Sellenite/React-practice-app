@@ -2,7 +2,7 @@
  * @Author: yuuhei
  * @Date:   2018-02-08 14:36:24
  * @Last Modified by:   Sellenite
- * @Last Modified time: 2018-02-10 14:36:50
+ * @Last Modified time: 2018-02-10 22:11:17
  */
 
 import React, { Component } from 'react';
@@ -40,7 +40,8 @@ class ReactRouter extends Component {
                     </ul>
                 </header>
                 <div>
-                    <Route path={`${match.url}/:id`} component={ParamsPage} />
+                    {/* 参数可以传入多个，然后访问的时候要对上参数才能够出现 */}
+                    <Route path={`${match.url}/:id/:sub`} component={ParamsPage} />
                     <Route path={`${match.url}/redirect`} component={RerirectPage} />
                     <Route exact path={`${match.url}`} render={() => {
                                                                    return <h3>Please select one</h3>

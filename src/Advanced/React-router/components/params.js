@@ -6,8 +6,8 @@ const ParamsPage = ({match}) => {
     return (
         <div>
             <p>
-                Selected:
-                {match.params.id}
+                Selected Main Router and Sub Router:
+                <span style={{ color: '#FFF', background: '#e63c6a' }}>{" "} {match.params.id} {" - "} {match.params.sub}</span>
             </p>
         </div>
     )
