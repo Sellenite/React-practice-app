@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 class Chapter10 extends Component {
     constructor() {
@@ -10,7 +10,7 @@ class Chapter10 extends Component {
 
     /* 在setState的普通用法并不是即时拿到修改后state的值 */
     originSetState() {
-        this.setState({countFalse: 0});
+        this.setState({ countFalse: 0 });
         // 此时的this.state.countFalse还是undefined,undefined + 1 = NaN
         this.setState({
             countFalse: this.state.countFalse + 1
@@ -26,7 +26,7 @@ class Chapter10 extends Component {
         // 在使用 React.js 的时候，并不需要担心多次进行 setState 会带来性能问题。
         // 实际上只是进行了一次渲染
         this.setState((prevState) => {
-            return {count: 0}
+            return { count: 0 }
         });
         this.setState((prevState) => {
             return {
