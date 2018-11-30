@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class Comment extends Component {
@@ -60,8 +60,8 @@ class Comment extends Component {
                 </span>：
             </div>
             <p dangerouslySetInnerHTML={{
-                    __html: this._getProcessedContent(this.props.comment.content)
-                }}></p>
+                __html: this._getProcessedContent(this.props.comment.content)
+            }}></p>
             <span className='comment-createdtime'>
                 {this.state.timeString}
             </span>

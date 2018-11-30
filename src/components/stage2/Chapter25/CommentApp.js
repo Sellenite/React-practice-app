@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import './style.css';
 import CommentInput from './CommentInput';
 import CommentList from './CommentList';
@@ -24,14 +24,15 @@ class Chapter25 extends Component {
             return alert('请输入评论内容');
         const comments = this.state.comments;
         comments.push(comment);
-        this.setState({comments: comments});
+        this.setState({ comments: comments });
         this._saveComments(comments);
     }
 
     handleDeleteComment(index) {
+        // 由于react的数据更新是根据前后的不同进行，所以需要替换一个全新的数组
         const comments = this.state.comments.slice();
         comments.splice(index, 1);
-        this.setState({comments: comments});
+        this.setState({ comments: comments });
         this._saveComments(comments);
     }
 
@@ -42,7 +43,7 @@ class Chapter25 extends Component {
     _loadComments() {
         const comments = localStorage.getItem('comments');
         if (comments) {
-            this.setState({comments: JSON.parse(comments)});
+            this.setState({ comments: JSON.parse(comments) });
         }
     }
 
