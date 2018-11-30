@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 import Chapter18 from './Chapter18';
 import Chapter19 from './Chapter19';

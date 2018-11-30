@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 /* 验证的需要额外安装，react 16已将它独立出来了 */
 import PropTypes from 'prop-types';
 
@@ -27,7 +27,7 @@ class Chapter24 extends Component {
     // check https://reactjs.org/docs/typechecking-with-proptypes.html
 
     render() {
-        const {comments} = this.props;
+        const { comments } = this.props;
         return (<div>
             <p>{comments.username}</p>
             <p>{comments.content}</p>

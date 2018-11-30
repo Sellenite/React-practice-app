@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 class Header extends Component {
     constructor() {
@@ -23,7 +23,7 @@ class Header extends Component {
     }
 
     componentWillUnmount() {
-        
+
     }
 }
 
