@@ -1,8 +1,9 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 /* Redux是一种架构模式 */
 
 /* 状态管理 */
+/* const出来的对象只是不能够将整个对象修改，修改对象的属性是可以的 */
 const appState = {
     title: {
         text: 'React.js 小书',
@@ -58,7 +59,7 @@ function createStore(state, stateChanger) {
         // 将所有订阅的函数全部执行
         listeners.forEach((listener) => listener());
     };
-    return {getState, dispatch, subscrible};
+    return { getState, dispatch, subscrible };
 }
 
 class Chapter31 extends Component {
@@ -69,8 +70,8 @@ class Chapter31 extends Component {
         // 首次渲染
         renderApp(store.getState());
         // 往下改数据的时候就会自动调用渲染函数
-        store.dispatch({type: 'UPDATE_TITLE_COLOR', color: 'gray'});
-        store.dispatch({type: 'UPDATE_TITLE_TEXT', text: 'change by subscrible'});
+        store.dispatch({ type: 'UPDATE_TITLE_COLOR', color: 'gray' });
+        store.dispatch({ type: 'UPDATE_TITLE_TEXT', text: 'change by subscrible' });
     }
 
     render() {

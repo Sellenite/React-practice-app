@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 /* Redux是一种架构模式 */
 
@@ -78,7 +78,7 @@ function createStore(state, stateChanger) {
         // 修改数据后将所有订阅的函数全部执行
         listeners.forEach((listener) => listener());
     };
-    return {getState, dispatch, subscrible};
+    return { getState, dispatch, subscrible };
 }
 
 class Chapter33 extends Component {
@@ -94,8 +94,8 @@ class Chapter33 extends Component {
         // 首次渲染
         renderApp(store.getState());
         // 往下改数据的时候就会自动调用渲染函数
-        store.dispatch({type: 'UPDATE_TITLE_COLOR', color: 'darkred'});
-        store.dispatch({type: 'UPDATE_TITLE_TEXT', text: 'change by subscrible watch state'});
+        store.dispatch({ type: 'UPDATE_TITLE_COLOR', color: 'darkred' });
+        store.dispatch({ type: 'UPDATE_TITLE_TEXT', text: 'change by subscrible watch state' });
     }
 
     render() {

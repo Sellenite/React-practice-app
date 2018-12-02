@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 /* Redux是一种架构模式 */
 
@@ -48,7 +48,7 @@ function dispatch(action) {
 
 class Chapter30 extends Component {
     componentDidMount() {
-        dispatch({type: 'UPDATE_TITLE_COLOR', color: 'green'});
+        dispatch({ type: 'UPDATE_TITLE_COLOR', color: 'green' });
         renderApp(appState);
     }
 
