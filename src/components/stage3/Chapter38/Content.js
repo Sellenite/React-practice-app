@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {connect} from './react-redux';
+import { connect } from './react-redux';
 
 import ThemeSwitch from './ThemeSwitch';
 
@@ -10,18 +10,20 @@ class Content extends Component {
     }
 
     render() {
-        return (<div>
-            <p style={{
+        return (
+            <div>
+                <p style={{
                     color: this.props.themeColor
                 }}>React.js 小书内容</p>
-            <ThemeSwitch/>
-        </div>);
+                <ThemeSwitch />
+            </div>
+        );
     }
 }
 
 // 定义需要context的数据
 const mapStateToProps = (state) => {
-    return {themeColor: state.themeColor}
+    return { themeColor: state.themeColor }
 }
 
 Content = connect(mapStateToProps)(Content);

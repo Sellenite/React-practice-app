@@ -11,5 +11,5 @@ export function createStore(reducer) {
         listeners.forEach((listener) => listener());
     };
     dispatch({}); // state初始化
-    return {getState, dispatch, subscrible};
+    return { getState, dispatch, subscrible };
 }

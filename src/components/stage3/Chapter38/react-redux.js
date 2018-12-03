@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 /* 仿Redux + Context，由于子组件有多次重复的获取context的代码，这里将它们提升为Pure/Dumb Component，并且使用高阶组件帮助我们取context数据然后使用props传入Pure/Dumb Component */
@@ -15,13 +15,15 @@ export class Provider extends Component {
     }
 
     getChildContext() {
-        return {store: this.props.store}
+        return { store: this.props.store }
     }
 
     render() {
-        return (<div>
-            {this.props.children}
-        </div>);
+        return (
+            <div>
+                {this.props.children}
+            </div>
+        );
     }
 }
 
@@ -43,13 +45,13 @@ export const connect = (mapStateToProps, mapDispatchToProps) => (WrappedComponen
         }
 
         componentWillMount() {
-            const {store} = this.context;
+            const { store } = this.context;
             this._updateProps();
             store.subscrible(() => this._updateProps());
         }
 
         _updateProps() {
-            const {store} = this.context;
+            const { store } = this.context;
             let stateProps = mapStateToProps
                 ? mapStateToProps(store.getState(), this.props) // 额外传入
                 : {}; // 防止 mapStateToProps 没有传入
@@ -68,7 +70,7 @@ export const connect = (mapStateToProps, mapDispatchToProps) => (WrappedComponen
 
         render() {
             // {...this.state.allProps} 意思是把这个对象里面的属性全部通过 `props` 方式传递进去
-            return (<WrappedComponent {...this.state.allProps}/>);
+            return (<WrappedComponent {...this.state.allProps} />);
         }
     }
 

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 /* Redux是一种架构模式 */
 
@@ -70,7 +70,7 @@ function reducer(state, action) {
 /* 定义另外一个纯函数reducer */
 function themeReducer(state, action) {
     if (!state)
-        return {themeName: 'Red Theme', themeColor: 'red'}
+        return { themeName: 'Red Theme', themeColor: 'red' }
     switch (action.type) {
         case 'UPDATE_THEME_NAME':
             return {
@@ -105,7 +105,7 @@ function createStore(reducer) {
         listeners.forEach((listener) => listener());
     };
     dispatch({}); // 初始化state
-    return {getState, dispatch, subscrible};
+    return { getState, dispatch, subscrible };
 }
 
 class Chapter34 extends Component {
@@ -121,8 +121,8 @@ class Chapter34 extends Component {
         // 首次渲染
         renderApp(store.getState());
         // 往下改数据的时候就会自动调用渲染函数
-        store.dispatch({type: 'UPDATE_TITLE_COLOR', color: 'orange'});
-        store.dispatch({type: 'UPDATE_TITLE_TEXT', text: 'change by subscrible watch state reducer'});
+        store.dispatch({ type: 'UPDATE_TITLE_COLOR', color: 'orange' });
+        store.dispatch({ type: 'UPDATE_TITLE_TEXT', text: 'change by subscrible watch state reducer' });
     }
 
     render() {

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import Header from './Header';
@@ -18,14 +18,14 @@ function createStore(reducer) {
         listeners.forEach((listener) => listener());
     };
     dispatch({}); // state初始化
-    return {getState, dispatch, subscrible};
+    return { getState, dispatch, subscrible };
 }
 
 /* reducer的职责是返回一个全新的state，而不是修改传入的state，是一个纯函数 */
 function themeReducer(state, action) {
     // 定义默认值
     if (!state)
-        return {themeColor: 'red'}
+        return { themeColor: 'red' }
     // 定义行为
     switch (action.type) {
         case 'CHANGE_COLOR':
@@ -53,14 +53,16 @@ class Chapter36 extends Component {
     }
 
     getChildContext() {
-        return {store}
+        return { store }
     }
 
     render() {
-        return (<div>
-            <Header/>
-            <Content/>
-        </div>);
+        return (
+            <div>
+                <Header />
+                <Content />
+            </div>
+        );
     }
 }
 
