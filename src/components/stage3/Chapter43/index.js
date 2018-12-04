@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
-import {createStore} from 'redux';
-import {Provider} from 'react-redux';
+import React, { Component } from 'react';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 
 /* 根据是否需要高度的复用性，把组件划分为 Dumb 和 Smart 组件，约定俗成地把它们分别放到 components 和 containers 目录下 */
 
@@ -16,7 +16,7 @@ import Content from './containers/Content';
 function themeReducer(state, action) {
     // 定义默认值
     if (!state)
-        return {themeColor: 'red'}
+        return { themeColor: 'red' }
     // 定义行为
     switch (action.type) {
         case 'CHANGE_COLOR':
@@ -30,7 +30,6 @@ function themeReducer(state, action) {
 }
 
 // 创建store
-// 第二个参数为开启浏览器对redux的调试
 const store = createStore(themeReducer);
 
 // Provider只能够传入一个single-element
@@ -41,18 +40,22 @@ class Index extends Component {
     }
 
     render() {
-        return (<div>
-            <Header/>
-            <Content/>
-        </div>);
+        return (
+            <div>
+                <Header />
+                <Content />
+            </div>
+        );
     }
 }
 
 class Chapter43 extends Component {
     render() {
-        return (<Provider store={store}>
-            <Index></Index>
-        </Provider>);
+        return (
+            <Provider store={store}>
+                <Index></Index>
+            </Provider>
+        );
     }
 }
 

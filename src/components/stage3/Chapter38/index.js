@@ -44,9 +44,11 @@ class Index extends Component {
 
 class Chapter38 extends Component {
     render() {
-        return (<Provider store={store}>
-            <Index />
-        </Provider>);
+        return (
+            <Provider store={store}>
+                <Index />
+            </Provider>
+        );
     }
 }
 

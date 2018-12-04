@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
-import {createStore} from 'redux';
-import {Provider} from 'react-redux';
+import React, { Component } from 'react';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 
 import Header from './Header';
 import Content from './Content';
@@ -9,7 +9,7 @@ import Content from './Content';
 function themeReducer(state, action) {
     // 定义默认值
     if (!state)
-        return {themeColor: 'red'}
+        return { themeColor: 'red' }
     // 定义行为
     switch (action.type) {
         case 'CHANGE_COLOR':
@@ -23,7 +23,6 @@ function themeReducer(state, action) {
 }
 
 // 创建store
-// 第二个参数为开启浏览器对redux的调试
 const store = createStore(themeReducer);
 
 // Provider只能够传入一个single-element
@@ -34,18 +33,22 @@ class Index extends Component {
     }
 
     render() {
-        return (<div>
-            <Header/>
-            <Content/>
-        </div>);
+        return (
+            <div>
+                <Header />
+                <Content />
+            </div>
+        );
     }
 }
 
 class Chapter42 extends Component {
     render() {
-        return (<Provider store={store}>
-            <Index></Index>
-        </Provider>);
+        return (
+            <Provider store={store}>
+                <Index></Index>
+            </Provider>
+        );
     }
 }
 
