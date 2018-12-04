@@ -1,11 +1,11 @@
-import {INIT_COMMNETS, ADD_COMMENT, DELETE_COMMENT} from '../actions/index';
+import { INIT_COMMNETS, ADD_COMMENT, DELETE_COMMENT } from '../actions/index';
 
 // reducer，具体的修改方式
 export default function(state = [], action) {
     switch (action.type) {
         case INIT_COMMNETS:
             // 初始化评论
-            return {comments: action.comments}
+            return { comments: action.comments }
         case ADD_COMMENT:
             // 新增评论
             return {

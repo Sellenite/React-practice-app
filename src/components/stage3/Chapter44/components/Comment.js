@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 export default class Comment extends Component {
@@ -52,21 +52,23 @@ export default class Comment extends Component {
 
     render() {
         const comment = this.props.comment
-        return (<div className='comment'>
-            <div className='comment-user'>
-                <span className='comment-username'>
-                    {comment.username}
-                </span>：
-            </div>
-            <p dangerouslySetInnerHTML={{
+        return (
+            <div className='comment'>
+                <div className='comment-user'>
+                    <span className='comment-username'>
+                        {comment.username}
+                    </span>：
+                </div>
+                <p dangerouslySetInnerHTML={{
                     __html: this._getProcessedContent(comment.content)
-                }}/>
-            <span className='comment-createdtime'>
-                {this.state.timeString}
-            </span>
-            <span onClick={this.handleDeleteComment.bind(this)} className='comment-delete'>
-                删除
-            </span>
-        </div>)
+                }} />
+                <span className='comment-createdtime'>
+                    {this.state.timeString}
+                </span>
+                <span onClick={this.handleDeleteComment.bind(this)} className='comment-delete'>
+                    删除
+                </span>
+            </div>
+        )
     }
 }

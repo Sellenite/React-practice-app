@@ -5,13 +5,13 @@ export const DELETE_COMMENT = 'DELETE_COMMENT';
 
 // actions
 export const initComments = (comments) => {
-    return {type: INIT_COMMNETS, comments};
+    return { type: INIT_COMMNETS, comments };
 }
 
 export const addComment = (comment) => {
-    return {type: ADD_COMMENT, comment};
+    return { type: ADD_COMMENT, comment };
 }
 
 export const deleteComment = (commentIndex) => {
-    return {type: DELETE_COMMENT, commentIndex};
+    return { type: DELETE_COMMENT, commentIndex };
 }

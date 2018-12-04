@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Comment from './Comment'
 
@@ -19,8 +19,10 @@ export default class CommentList extends Component {
     }
 
     render() {
-        return (<div>
-            {this.props.comments.map((comment, i) => <Comment comment={comment} key={window.crypto.getRandomValues(new Uint8Array(16))} index={i} onDeleteComment={this.handleDeleteComment.bind(this)}/>)}
-        </div>)
+        return (
+            <div>
+                {this.props.comments.map((comment, i) => <Comment comment={comment} key={window.crypto.getRandomValues(new Uint8Array(16))} index={i} onDeleteComment={this.handleDeleteComment.bind(this)} />)}
+            </div>
+        )
     }
 }
